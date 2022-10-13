@@ -15,7 +15,7 @@ const Footer = () => {
 
   //get all companies endpoint
   useEffect(() => {
-    fetch(`/getCompanies`)
+    fetch(`https://group-project-fszgn.herokuapp.com/getCompanies`)
       .then((res) => res.json())
       .then((data) => {
         setCompanies(data.data);

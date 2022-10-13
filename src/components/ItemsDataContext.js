@@ -24,7 +24,7 @@ export const ItemsDataProvider = ({ children }) => {
 
   //get all items fetch
     useEffect(() => {
-    fetch(`/getItems`)
+    fetch(`https://group-project-fszgn.herokuapp.com/getItems`)
       .then((res) => res.json())
       .then((data) => {
         setAllItems(data.data);
@@ -35,7 +35,7 @@ export const ItemsDataProvider = ({ children }) => {
   //create new unique cart fetch
   useEffect(() => {
     if (cartId === null) {
-      fetch(`/createCart`)
+      fetch(`https://group-project-fszgn.herokuapp.com/createCart`)
         .then((res) => res.json())
         .then((data) => {
           JSON.stringify(
@@ -48,7 +48,7 @@ export const ItemsDataProvider = ({ children }) => {
 
 /// handleClick to add item in the cart
   const handleClick = () => {
-    fetch("/addItemToCart", {
+    fetch("https://group-project-fszgn.herokuapp.com/addItemToCart", {
       method: "POST",
       body: JSON.stringify({
         ...item,

@@ -14,7 +14,7 @@ const Confirmation = () => {
 
   //gets latest order just posted into orders DB
   useEffect(() => {
-    fetch(`/getLatestOrder`)
+    fetch(`https://group-project-fszgn.herokuapp.com/getLatestOrder`)
       .then((res) => res.json())
       .then((data) => {
         setOrderInfo(data.data);
@@ -26,7 +26,7 @@ const Confirmation = () => {
   }, [cart]);
 
   useEffect(() => {
-    fetch(`/getCartItems/${cart}`)
+    fetch(`https://group-project-fszgn.herokuapp.com/getCartItems/${cart}`)
       .then((res) => res.json())
       .then((data) => {
         setCartItems(data.data);
