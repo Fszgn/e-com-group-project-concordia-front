@@ -20,7 +20,7 @@ const Cart = () => {
 
   //useEffect for getting items stored inside current cart collection
   useEffect(() => {
-    fetch(`https://group-project-fszgn.herokuapp.com/getCartItems/${cart}`)
+    fetch(`${process.env.REACT_APP_URI}/getCartItems/${cart}`)
       .then((res) => res.json())
       .then((data) => {
         setCartItems(data.data);
@@ -31,9 +31,10 @@ const Cart = () => {
       });
   }, [remove, postedItem]);
 
+  console.log(process.env.REACT_APP_URI);
 
   const handleDelete = (specificItem) => {
-    fetch(`https://group-project-fszgn.herokuapp.com/deleteItemFromCart`, {
+    fetch(`${process.env.REACT_APP_URI}/deleteItemFromCart`, {
       method: "DELETE",
       body: JSON.stringify({
         ...specificItem,

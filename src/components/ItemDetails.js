@@ -16,7 +16,7 @@ const ItemDetails = () => {
 
   //fetch to specific item id.
   useEffect(() => {
-    fetch(`https://group-project-fszgn.herokuapp.com/getItem/${itemId}`)
+    fetch(`${process.env.REACT_APP_URI}/getItem/${itemId}`)
       .then((res) => res.json())
       .then((data) => {
         setItem(data.data);
@@ -30,7 +30,7 @@ const ItemDetails = () => {
 
   const handleClick = () => {
     nav("/cart");
-    fetch("https://group-project-fszgn.herokuapp.com/addItemToCart", {
+    fetch(`${process.env.REACT_APP_URI}/addItemToCart`, {
       method: "POST",
       body: JSON.stringify({
         ...item,

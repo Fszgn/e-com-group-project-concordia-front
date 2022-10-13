@@ -24,7 +24,7 @@ const Checkout = () => {
 
   //checksout and adds cart to orders
   const handleCheckout = () => {
-    fetch("https://group-project-fszgn.herokuapp.com/goToCheckOut", {
+    fetch(`${process.env.REACT_APP_URI}/goToCheckOut`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ cartId: cart }),
